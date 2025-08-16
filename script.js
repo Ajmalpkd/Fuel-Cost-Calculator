@@ -77,10 +77,11 @@ function calculate() {
     let Litter = Fuel/price
     console.log(Litter);
     
-   result.innerHTML = `This trip will require a fuel cost of Rs <span style="color: red;">${parseFloat(Fuel)}</span>. You will need approximately <span style="color: red;">${parseFloat(Litter)} Litres</span> of fuel.`;
+  result.innerHTML = `This trip will require a fuel cost of Rs <span style="color: red;">${parseFloat(Fuel).toFixed(0)}</span> You will need approximately <span style="color: red;">${parseFloat(Litter).toFixed(0)} Litres</span> of fuel.`;
+
 
     // Resent Box
-    let resentli = `Distance: ${distance}, Price: ${price}, Mileage: ${Mvalue}, Fuel Cost: ${Fuel.toFixed(2)}`;
+    let resentli = `Distance: ${distance}, Price: ${price}, Mileage: ${Mvalue}, Fuel Cost: ${parseFloat(Fuel).toFixed(0)}`;
     let li = document.createElement("li");
     li.classList.add("li");
     li.textContent = resentli;
