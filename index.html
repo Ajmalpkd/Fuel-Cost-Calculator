@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Calculator</title>
+    <link rel="stylesheet" href="sytle.css">
+    <!-- Font Awesome 6 CDN -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    
+ <div class="nav">
+            <!-- <i class="fa-solid fa-gas-pump" style="font-size:24px; color:yellow; margin-right: 10px; "></i> -->
+             <i class="fa-solid fa-gas-pump fuel-icon"></i>
+            <h1 >Fuel Cost Calculator</h1>
+        </div>
+        
+    <div class="main">
+          <div class="text">
+                <p>A fuel calculator, often referred to as a fuel cost calculator
+                     or mileage calculator, is a practical online tool or
+                      application designed to estimate the cost of fuel
+                       for a given journey or period. It helps users
+                        understand and budget for their travel expenses
+                         by taking into account key factors that influence 
+                         fuel consumption and cost.
+</p>
+<h4>Core Purpose:</h4>
+<p>
+Create a budget for travel expenses in advance, whether for a daily commute, a weekend 
+road trip, or business-related travel. <br>
+Compare the efficiency of different vehicles. By inputting different "Fuel Efficiency"
+ values, users can see the potential 
+savings from choosing a more fuel-efficient car or adopting eco-friendly driving habits. <br>
+Analyze the impact of fluctuating fuel prices. The tool allows users to see how changes in 
+"Fuel Price" will affect their overall travel budget.</p>
+
+       <div class="rb">
+            <div class="resultbox">
+             <h3>Result</h3>
+            </div>
+            
+            <h1 class="result"></h1> 
+        </div> 
+</div> 
+
+   
+
+        <div class="box">
+            <div class="hdg">
+                 <h2>Fuel Cost Calculator</h2>
+            </div>
+            <div class="field">
+                <label for="">Trip Distance (KM)</label>
+                <input id ="TripDistance" type="text">
+                
+            </div>
+            <div class="field">
+                <label for="">Fuel Price (per Litre)</label>
+                <input id ="FuelPrice" type="text">
+            </div>
+            <div class="field">
+                <label for="">Fuel Efficiency (KM/L)</label>
+                <input id ="Mileage" type="text">
+            </div>
+           <button class="btn">Calculate</button>
+           <button class="reset">Reset</button>
+        </div>
+        
+        <div>
+            <div class="rc">
+                 <h3>Resent Calculations</h3>
+                 <button class="Clear">Clear</button>
+            </div>
+            <ul class="resent"></ul>
+        </div>
+        
+        
+       
+        
+    </div>
+     <div class="footer"></div>
+    <script src="./script.js"></script>
+
+</body>
+</html>
