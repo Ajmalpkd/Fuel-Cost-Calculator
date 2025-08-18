@@ -30,7 +30,7 @@
                          by taking into account key factors that influence 
                          fuel consumption and cost.
 </p>
-<h4>Core Purpose:</h4>
+<!-- <h4>Core Purpose:</h4>
 <p>
 Create a budget for travel expenses in advance, whether for a daily commute, a weekend 
 road trip, or business-related travel. <br>
@@ -38,15 +38,9 @@ Compare the efficiency of different vehicles. By inputting different "Fuel Effic
  values, users can see the potential 
 savings from choosing a more fuel-efficient car or adopting eco-friendly driving habits. <br>
 Analyze the impact of fluctuating fuel prices. The tool allows users to see how changes in 
-"Fuel Price" will affect their overall travel budget.</p>
+"Fuel Price" will affect their overall travel budget.</p> -->
 
-       <div class="rb">
-            <div class="resultbox">
-             <h3>Result</h3>
-            </div>
-            
-            <h1 class="result"></h1> 
-        </div> 
+       
 </div> 
 
    
@@ -57,24 +51,40 @@ Analyze the impact of fluctuating fuel prices. The tool allows users to see how 
             </div>
             <div class="field">
                 <label for="">Trip Distance (KM)</label>
-                <input id ="TripDistance" type="text">
+                <input id ="TripDistance" placeholder="Trip Distance" type="text">
                 
             </div>
             <div class="field">
-                <label for="">Fuel Price (per Litre)</label>
-                <input id ="FuelPrice" type="text">
+                <label for="">Fuel Price (Per Litre)</label>
+                <input id ="FuelPrice" placeholder="Fuel Price" type="text">
             </div>
             <div class="field">
                 <label for="">Fuel Efficiency (KM/L)</label>
-                <input id ="Mileage" type="text">
+                <input id ="Mileage" placeholder="Mileage" type="text">
+            </div>
+            <div class="field">
+                <label for="">Total Person (Optional)</label>
+                <input id ="perhead" placeholder="Per Head" type="text">
             </div>
            <button class="btn">Calculate</button>
            <button class="reset">Reset</button>
         </div>
         
+        
+
         <div>
+            <div class="rb">
+                <div class="resultbox">
+                 <h3>Result</h3>
+                </div>
+                <div class="h1center">
+                    <h1 class="result"></h1> 
+                </div>
+              
+            </div>
+
             <div class="rc">
-                 <h3>Resent Calculations</h3>
+                 <h3>Recent Calculations</h3>
                  <button class="Clear">Clear</button>
             </div>
             <ul class="resent"></ul>

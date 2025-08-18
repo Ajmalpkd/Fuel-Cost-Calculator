@@ -1,6 +1,7 @@
 const TripDistance = document.getElementById("TripDistance")
 const FuelPrice = document.getElementById("FuelPrice")
 const Mileage = document.getElementById("Mileage")
+const perhead = document.getElementById("perhead")
 const btn = document.querySelector(".btn")
 const result = document.querySelector(".result")
 const reset = document.querySelector(".reset")
@@ -9,83 +10,50 @@ const resultbox = document.querySelector(".resultbox")
 const resent = document.querySelector(".resent")
 const Clear = document.querySelector(".Clear")
 
-// let resentli  
 
-// function setlocalstorage(){
-//        // Set to localstorage
-//     localStorage.setItem('Fuel',resentli);
-// }
-
-// function getlocalstorage(){
-//       // Get from localstorage
-//     const Fuelget = localStorage.getItem('Fuel');
-//   console.log(Fuelget);
-  
-// }
-
-
-
-// function calculate(){
-//     let distance = Number (TripDistance.value) 
-//     let price = Number (FuelPrice.value)
-//     let Mvalue = Number (Mileage.value)
-
-//     if (isNaN(distance) || isNaN(price) || isNaN(Mvalue) || distance <= 0 || price <= 0 || Mvalue <= 0) {
-//     result.textContent = "Please enter valid \n positive numbers.";
-//     return; 
-//     }
-    // setlocalstorage()
-    // getlocalstorage()
-
-    // let Fuel = (distance * price) / Mvalue;
-    // result.textContent =`This trip will require amounts to a fuel cost of ${Fuel.toFixed(2)}`;
-
-   
-
-// Resnt Box 
-//     let li= document.createElement("li")
-//     li.classList.add("li")
-//     let resentli = `Distance: ${distance}, Price: ${price}, Mileage: ${Mvalue},Fuel Cost${Fuel.toFixed(2)}`
-//     li.textContent = resentli;
-//     resent.appendChild(li) 
-// }
-
-// function clear(){
-//     TripDistance.value = ""
-//     FuelPrice.value = ""
-//     Mileage.value = ""
-//     result.textContent = ""
-// }
-
-// function resentClear(){
-//    const listItems = resent.querySelectorAll('li'); // Select all <li> elements within the 'resent' container
-//     listItems.forEach(item => {
-//         item.remove();});
-// }
 
 function calculate() {
     let distance = Number(TripDistance.value);
     let price = Number(FuelPrice.value);
     let Mvalue = Number(Mileage.value);
+    let perheadone = Number(perhead.value);
+    
+    
 
     if (isNaN(distance) || isNaN(price) || isNaN(Mvalue) || distance <= 0 || price <= 0 || Mvalue <= 0) {
-        result.innerHTML = `<span style="color: red;">Please enter valid \n positive numbers.</span>`;
+        result.innerHTML = `<span style="color: red;">Please enter valid \n positive numbers</span>`;
         return; 
     }
 
     let Fuel = (distance * price) / Mvalue;
-    let Litter = Fuel/price
-    console.log(Litter);
+    let Litter = Fuel/price;
     
-  result.innerHTML = `This trip will require a fuel cost of Rs <span style="color: red;">${parseFloat(Fuel).toFixed(0)}</span> You will need approximately <span style="color: red;">${parseFloat(Litter).toFixed(0)} Litres</span> of fuel.`;
+   
+    let one = Fuel / perheadone;
+    if(perheadone === 0 || isNaN(perheadone)){
+          result.innerHTML = `Fuel Cost Rs : <span style="color: red;">${parseFloat(Fuel).toFixed(0)}</span> 
+Fuel Litter     : <span style="color: red;">${parseFloat(Litter).toFixed(0)} Litres</span> 
+`;
+    }else{
+        
+          result.innerHTML = `Fuel Cost Rs : <span style="color: red;">${parseFloat(Fuel).toFixed(0)}</span> 
+Fuel Litter     : <span style="color: red;">${parseFloat(Litter).toFixed(0)} Litres</span>
+Per Head Rs : <span style="color: red;">${parseFloat(one).toFixed(0)}</span>`;
+    }
+
 
 
     // Resent Box
+    
     let resentli = `Distance: ${distance}, Price: ${price}, Mileage: ${Mvalue}, Fuel Cost: ${parseFloat(Fuel).toFixed(0)}`;
+    if(isFinite(one) && one !== 0){
+          resentli += `, Per head: ${parseFloat(one).toFixed(0)}`;
+    }
     let li = document.createElement("li");
     li.classList.add("li");
     li.textContent = resentli;
     resent.appendChild(li);
+  
 
     // 🔹 Save to localStorage (array of items)
     let history = JSON.parse(localStorage.getItem("FuelHistory")) || [];
@@ -109,6 +77,7 @@ function clear() {
     TripDistance.value = "";
     FuelPrice.value = "";
     Mileage.value = "";
+    perhead.value = "";
     result.textContent = "";
 }
 
